@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import style from "./BasicSpring.module.css";
 import { Square } from "../Blocks/Square/Square";
 
-const ids = [0, 1, 2, 3];
 
-function BasicSquare() {
+
+function BasicSquare(props) {
   return (
     <>
       <div className={style.container}>
-        {ids.map((item) => {
+        {props.numbers.map((item) => {
           return <Square time={item} />;
         })}
       </div>
