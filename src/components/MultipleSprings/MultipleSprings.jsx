@@ -27,7 +27,7 @@ export const MultipleSprings = (props) => {
       <div className={style.container}>
         <div className={style.navContainer}>
           <Link to={"/"}>Previous</Link>
-          <Link to={"/spring-3"}>Next</Link>
+          <Link to={"/spring-4"}>Next</Link>
         </div>
         <div className={style.boxesContainer}>
           {numbers &&
