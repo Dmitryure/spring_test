@@ -4,18 +4,20 @@ import style from "./Gestures.module.css";
 import { useSprings, animated } from "react-spring";
 import { useDrag } from "react-use-gesture";
 
-const xGrabber = (x) => (index) => {
-  console.log(x, index);
-  return { left: index * 100 + x, position: "absolute" };
+const xGrabber = (x, y) => (index) => {
+  console.log(x, y);
+  return { left: index * 100 + x, top: index * 100 + y };
 };
 
+
+//how to split by index
 export const Gestures = (props) => {
   const { numbers } = props;
   const order = useRef(numbers.map((_, index) => index));
-  const [springs, setSprings] = useSprings(numbers.length, xGrabber(1));
+  const [springs, setSprings] = useSprings(numbers.length, xGrabber(1, 1));
 
   const bind = useDrag(({ movement: [x, y] }) => {
-    setSprings(xGrabber(x));
+    setSprings(xGrabber(x, y));
   });
 
   return (
