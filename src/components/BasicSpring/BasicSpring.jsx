@@ -1,9 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import style from "./BasicSpring.module.css";
 import { Square } from "../Blocks/Square/Square";
-
-
 
 function BasicSquare(props) {
   return (
@@ -13,7 +10,7 @@ function BasicSquare(props) {
           return <Square time={item} />;
         })}
       </div>
-      <Link to={"/spring-2"}>next</Link>
+      {props.children}
     </>
   );
 }

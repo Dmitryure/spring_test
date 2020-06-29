@@ -10,7 +10,7 @@ export const Trail = (props) => {
   const trail = useTrail(data ? Object.keys(data).length : 5, {
     config,
     height: show ? 30 : 0,
-    fontSize: show ? 10 : 0,
+    fontSize: show ? 20 : 0,
   });
 
   useEffect(() => {
@@ -37,6 +37,7 @@ export const Trail = (props) => {
           );
         })}
       )}
+      {props.children}
     </>
   );
 };

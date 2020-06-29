@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import style from "./MultipleSprings.module.css";
 import { useSprings, animated } from "react-spring";
 
@@ -25,17 +24,13 @@ export const MultipleSprings = (props) => {
   return (
     <>
       <div className={style.container}>
-        <div className={style.navContainer}>
-          <Link to={"/"}>Previous</Link>
-          <Link to={"/spring-4"}>Next</Link>
-        </div>
         <div className={style.boxesContainer}>
           {numbers &&
             numbers.map((item, i) => (
               <animated.div
                 style={{ ...springs[i] }}
                 onClick={() =>
-                  set((index) => ({ maxHeight: 0, fontSize: 60, maxWidth: 0 }))
+                  set(() => ({ maxHeight: 0, fontSize: 60, maxWidth: 0 }))
                 }
                 className={style.box}
                 key={item}
@@ -45,6 +40,7 @@ export const MultipleSprings = (props) => {
             ))}
         </div>
       </div>
+      {props.children}
     </>
   );
 };

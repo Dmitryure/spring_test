@@ -3,24 +3,42 @@ import { Route, Switch } from "react-router-dom";
 import BasicSquare from "./components/BasicSpring/BasicSpring";
 import { MultipleSprings } from "./components/MultipleSprings/MultipleSprings";
 import { Trail } from "./components/Trail/Trail";
+import { List } from "./components/List/List";
 import { Gestures } from "./components/Gestures/Gestures";
+import { Navigator } from "./components/Navigator/Navigator";
 
 const numbers = [1, 2, 3, 4];
 
 function App() {
   return (
     <Switch>
+      <Route path={"/spring-5"}>
+        <List>
+          <Navigator previous={"spring-4"} next={""} />{" "}
+        </List>
+      </Route>
       <Route path={"/spring-4"}>
-        <Trail />
+        <Trail>
+          {" "}
+          <Navigator previous={"spring-3"} next={"spring-5"} />{" "}
+        </Trail>
       </Route>
       <Route path={"/spring-3"}>
-        <Gestures numbers={numbers} />
+        <Gestures numbers={numbers}>
+          {" "}
+          <Navigator previous={"spring-2"} next={"spring-4"} />{" "}
+        </Gestures>
       </Route>
       <Route path={"/spring-2"}>
-        <MultipleSprings numbers={numbers} />
+        <MultipleSprings numbers={numbers}>
+          {" "}
+          <Navigator previous={""} next={"spring-3"} />{" "}
+        </MultipleSprings>
       </Route>
       <Route path={"/"}>
-        <BasicSquare numbers={numbers} />
+        <BasicSquare numbers={numbers}>
+          <Navigator previous={"spring-5"} next={"spring-2"} />
+        </BasicSquare>
       </Route>
     </Switch>
   );
