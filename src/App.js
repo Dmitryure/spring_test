@@ -6,15 +6,19 @@ import { Trail } from "./components/Trail/Trail";
 import { List } from "./components/List/List";
 import { Gestures } from "./components/Gestures/Gestures";
 import { Navigator } from "./components/Navigator/Navigator";
+import {WaypointFade} from "./components/WaypointFade/WaypointFade";
 
 const numbers = [1, 2, 3, 4];
 
 function App() {
   return (
     <Switch>
+        <Route path={"/spring-6"}>
+            <WaypointFade><Navigator previous={"spring-5"} next={""}/></WaypointFade>
+        </Route>
       <Route path={"/spring-5"}>
         <List>
-          <Navigator previous={"spring-4"} next={""} />{" "}
+          <Navigator previous={"spring-4"} next={"spring-6"} />{" "}
         </List>
       </Route>
       <Route path={"/spring-4"}>
@@ -37,7 +41,7 @@ function App() {
       </Route>
       <Route path={"/"}>
         <BasicSquare numbers={numbers}>
-          <Navigator previous={"spring-5"} next={"spring-2"} />
+          <Navigator previous={"spring-6"} next={"spring-2"} />
         </BasicSquare>
       </Route>
     </Switch>
